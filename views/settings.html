@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Settings</title>
+        <link rel="stylesheet" href="../style/reset.css" />
+        <link rel="stylesheet" href="../style/main.css" />
+        <link rel="stylesheet" href="../style/settings.css" />
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a class="btn-close" href="javascript:history.back()">
+                    <svg
+                        version="1.1"
+                        id="Capa_1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px"
+                        y="0px"
+                        viewBox="0 0 357 357"
+                        style="enable-background:new 0 0 357 357;"
+                        xml:space="preserve"
+                    >
+                        <g id="close">
+                            <polygon
+                                points="357,35.7 321.3,0 178.5,142.8 35.7,0 0,35.7 142.8,178.5 0,321.3 35.7,357 178.5,214.2 321.3,357 357,321.3 214.2,178.5"
+                            />
+                        </g>
+                    </svg>
+                </a>
+            </nav>
+        </header>
+        <div class="container container-center">
+            <h1>Settings</h1>
+            <hr />
+            <p>settings will go here</p>
+            <hr />
+            <h2>Font settings</h2>
+            <div class="alert-container">
+                <p>
+                    <svg
+                        class="alert-icon"
+                        version="1.1"
+                        id="Capa_1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px"
+                        y="0px"
+                        viewBox="0 0 469.333 469.333"
+                        style="enable-background:new 0 0 469.333 469.333;"
+                        xml:space="preserve"
+                    >
+                        <path
+                            d="M234.667,32L0,437.333h469.333L234.667,32z M256,373.333h-42.667v-42.667H256V373.333z M213.333,288v-85.333H256V288
+                           H213.333z"
+                        />
+                    </svg>
+                    changing these too much might break the ui
+                </p>
+            </div>
+            <div class="input-container">
+                <label class="label-number" for="base-font">base font size</label>
+                <input class="input-number" type="number" name="base-font" id="base-font" />
+            </div>
+            <div class="input-container">
+                <label class="label-number" for="h1-font">head 1 font size</label>
+                <input class="input-number" type="number" name="h1-font" id="h1-font" />
+            </div>
+            <div class="input-container">
+                <label class="label-number" for="h2-font">head 2 font size</label>
+                <input class="input-number" type="number" name="h2-font" id="h2-font" />
+            </div>
+            <div class="input-container">
+                <label class="label-number" for="h3-font">head 3 font size</label>
+                <input class="input-number" type="number" name="h3-font" id="h3-font" />
+            </div>
+            <hr />
+            <h2>Themes</h2>
+            <ul id="js-theme-list">
+                <!-- themes will be generated here -->
+            </ul>
+        </div>
+        <div id="js-popup" class="popup-bottom popup-hidden">
+            <p>Save changes?</p>
+            <button id="js-popup-cancel" class="popup-btn">Cancel</button>
+            <button id="js-popup-save" class="popup-btn popup-btn-save">Save</button>
+        </div>
+        <!-- You can also require other files to run in this process -->
+        <script src="../renderer.js"></script>
+        <script src="../scripts/settings.js"></script>
+    </body>
+</html>

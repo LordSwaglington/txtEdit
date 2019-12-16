@@ -1,0 +1,128 @@
+/* elements */
+
+hr {
+    border-bottom: solid 1px var(--main-color-front-0);
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+/* editor classes */
+
+.editor-main {
+    width: 100%;
+    height: calc(100% - 72px);
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+.editor-top {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    background-color: var(--main-color-back-1);
+    color: var(--main-color-front-0);
+
+    width: 100%;
+    max-width: 1624px;
+    height: 48px;
+
+    margin: auto;
+    margin-bottom: 24px;
+    border-radius: 4px;
+}
+
+.editor-btn {
+    background-color: var(--main-color-back-2);
+    color: var(--main-color-front-0);
+
+    margin-left: 8px;
+    width: 32px;
+    height: 32px;
+
+    border-radius: 4px;
+
+    transition: 0.3s;
+
+    font-family: 'Segoe MDL2 Assets';
+}
+
+.editor-btn:hover {
+    background-color: var(--main-color-back-3);
+}
+
+.editor-btn-active {
+    background-color: var(--color-highlight-0);
+    color: var(--color-highlight-front);
+    transition: 0.3s;
+}
+
+.editor-btn-active:hover {
+    background-color: var(--color-highlight-1);
+}
+
+.editor-btn-active svg {
+    fill: var(--color-highlight-front);
+}
+
+/* text fields */
+
+.text-container {
+    display: block;
+    padding: 24px;
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    /*margin: auto;*/
+
+    background-color: var(--main-color-back-1);
+    color: var(--main-color-front-0);
+
+    font-family: sans-serif;
+    font-size: var(--font-size-base);
+
+    overflow: auto;
+
+    border-radius: 4px;
+}
+
+.text-container-raw {
+    font-family: monospace;
+    resize: none;
+}
+
+.text-area {
+    width: 100%;
+    min-height: 100%;
+}
+
+.text-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.text-container::-webkit-scrollbar-track {
+    background: var(--main-color-back-1);
+    border-left: solid 1px var(--main-color-back-0);
+}
+
+.text-container::-webkit-scrollbar-thumb {
+    background: var(--main-color-back-2);
+    border-left: solid 1px var(--main-color-back-0);
+}
+
+.text-container::-webkit-scrollbar-thumb:hover {
+    background: var(--main-color-back-3);
+}
+
+/* additional classes */
+
+#divider {
+    width: 0;
+    margin: 0 24px 0 0;
+}
+
+.hidden {
+    display: none !important;
+}

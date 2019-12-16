@@ -1,0 +1,15 @@
+{
+    "name": "light",
+    "sort-top": true,
+    "colors": {
+        "--main-color-back-0": "#ffffff",
+        "--main-color-back-1": "#eeeeee",
+        "--main-color-back-2": "#dddddd",
+        "--main-color-front-0": "#000000",
+        "--main-color-front-1": "#666666",
+        "--main-color-front-2": "#aaaaaa",
+        "--color-highlight-front": "#ffffff",
+        "--color-highlight-0": "#263DF9",
+        "--color-highlight-1": "#1F32C0"
+    }
+}

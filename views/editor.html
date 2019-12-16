@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>txtEdit</title>
+
+        <!-- reset css and main css -->
+        <link rel="stylesheet" href="../style/reset.css" />
+        <link rel="stylesheet" href="../style/main.css" />
+
+        <!-- title bar components -->
+        <link rel="stylesheet" href="../style/titlebar.css" />
+        <script src="../scripts/titlebar.js"></script>
+
+        <link rel="stylesheet" href="../style/editor.css" />
+        <script src="../scripts/editor.js"></script>
+    </head>
+    <body>
+        <header id="titlebar">
+            <div id="drag-region">
+                <div id="window-title">
+                    <span><img src="../img/icon.png"/></span>
+                    <span>txtEdit</span>
+                </div>
+
+                <div id="window-controls">
+                    <div class="button" id="min-button">
+                        <span>&#xE921;</span>
+                    </div>
+                    <div class="button" id="max-button">
+                        <span>&#xE922;</span>
+                    </div>
+                    <div class="button" id="restore-button">
+                        <span>&#xE923;</span>
+                    </div>
+                    <div class="button" id="close-button">
+                        <span>&#xE8BB;</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <div class="editor-top">
+                <button title="back to menu" class="editor-btn" id="js-exit">&#xE72B;</button>
+                <button title="plain-text view" class="editor-btn" id="js-window-0">
+                    &#xF7B9;
+                </button>
+                <button title="stylized-text view" class="editor-btn" id="js-window-1">
+                    &#xF7B5;
+                </button>
+                <button title="split view" class="editor-btn" id="js-window-2">&#xED0C;</button>
+                <button title="save" class="editor-btn" id="js-save">&#xE74E;</button>
+                <button title="save as" class="editor-btn" id="js-saveas">&#xE78C;</button>
+            </div>
+            <div class="editor-main">
+                <textarea id="js-rawtext" class="text-container text-container-raw"></textarea>
+                <div id="divider"></div>
+                <div id="js-htmltext-container" class="text-container">
+                    <div id="js-htmltext" class="text-area" contenteditable="true"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,13 @@
+{
+    "name": "black",
+    "sort-top": false,
+    "colors": {
+        "--main-color-back-0": "#1e1b1d",
+        "--main-color-back-1": "#262325",
+        "--main-color-back-2": "#2e2b2d",
+        "--main-color-front-0": "#ffffff",
+        "--color-highlight-front": "#ffffff",
+        "--color-highlight-0": "#f92672",
+        "--color-highlight-1": "#c01f5a"
+    }
+}

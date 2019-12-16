@@ -1,0 +1,13 @@
+{
+    "name": "greyscale",
+    "sort-top": false,
+    "colors": {
+        "--main-color-back-0": "#1c1c1c",
+        "--main-color-back-1": "#242424",
+        "--main-color-back-2": "#2c2c2c",
+        "--main-color-front-0": "#ffffff",
+        "--color-highlight-front": "#000000",
+        "--color-highlight-0": "#ffffff",
+        "--color-highlight-1": "#eeeeee"
+    }
+}

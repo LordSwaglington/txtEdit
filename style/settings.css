@@ -1,0 +1,96 @@
+/* settings page */
+
+.list-item {
+    background-color: var(--main-color-back-1);
+    padding: 8px;
+    margin: 8px 0 8px 0;
+}
+
+.list-item:hover {
+    background-color: var(--main-color-back-2);
+    cursor: pointer;
+}
+
+.list-item-active {
+    background-color: var(--color-highlight-1);
+    color: var(--color-highlight-front);
+}
+
+.list-item-active:hover {
+    background-color: var(--color-highlight-0);
+}
+
+.color-box {
+    float: right;
+    margin-left: 8px;
+    width: 14px;
+    height: 14px;
+    border: solid 1px var(--main-color-front-0);
+}
+
+.alert-icon {
+    width: 16px;
+    height: 16px;
+
+    margin-bottom: -2px; /* icon is not vertically centered */
+
+    display: inline-block;
+
+    fill: var(--color-warning);
+}
+
+.error-icon {
+    width: 16px;
+    height: 16px;
+    padding: 2px;
+
+    fill: var(--color-error);
+}
+
+.btn-close {
+    float: right;
+}
+
+/* dividers */
+
+hr {
+    border-top: solid 1px var(--main-color-front-0);
+}
+
+.hr2 {
+    border-top: solid 1px var(--main-color-front-1);
+}
+
+.hr3 {
+    border-top: solid 1px var(--main-color-front-2);
+}
+
+/* input fields */
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input {
+    background-color: var(--main-color-back-2);
+    color: var(--main-color-front-0);
+
+    border: none;
+}
+
+.input-container {
+    margin: 8px 0 8px 0;
+}
+
+.label-number {
+    display: inline-block;
+    width: 144px;
+    padding: 8px 8px 8px 0;
+}
+
+.input-number {
+    width: 32px;
+    padding: 8px;
+}
