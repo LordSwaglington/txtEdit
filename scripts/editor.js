@@ -1,33 +1,39 @@
+// requires
 const ipc = require('electron').ipcRenderer;
 const fs = require('fs');
 
 const showdown = require('showdown');
 const converter = new showdown.Converter();
-/*converter.setOption('simpleLineBreaks', true);*/
 
+// variables
 let path;
 
-let rawtextarea;
-let htmtextarea;
+let marktextarea;
+let htmltextarea;
 
+let tags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'strong', 'em', 'blockquote', 'li'];
+
+// init
 window.addEventListener('DOMContentLoaded', () => {
     console.log('dom loaded');
     init();
 });
 
 function init() {
-    path = ipc.sendSync('getfilepath');
+    // get elements
+    marktextarea = document.getElementById('js-marktext');
+    htmltextarea = document.getElementById('js-htmltext');
 
-    rawtextarea = document.getElementById('js-rawtext');
-    htmtextarea = document.getElementById('js-htmltext');
-
-    rawtextarea.addEventListener('input', function() {
+    // add input listeners
+    // used to sync text views
+    marktextarea.addEventListener('input', () => {
         toHtml();
     });
-    htmtextarea.addEventListener('input', function() {
-        toRaw();
+    htmltextarea.addEventListener('input', () => {
+        toMark();
     });
 
+    // add listeners
     document.getElementById('js-exit').addEventListener('click', () => exitToMainPage());
     document.getElementById('js-save').addEventListener('click', () => saveFile());
     document.getElementById('js-saveas').addEventListener('click', () => saveFileAs());
@@ -36,19 +42,42 @@ function init() {
     document.getElementById('js-window-1').addEventListener('click', () => setEditorMode(1));
     document.getElementById('js-window-2').addEventListener('click', () => setEditorMode(2));
 
+    // buttons
+    for (let i = 0; i < tags.length; i++) {
+        document.getElementById(`js-text-${tags[i]}`).addEventListener('click', () => {
+            replaceSelectionWithHtml(`<${tags[i]}>${getSelectionText()}</${tags[i]}>`);
+            toMark();
+        });
+    }
+
+    // code buttons
+    document.getElementById('js-text-code').addEventListener('click', () => {
+        replaceSelectionWithHtml(`<code>${getSelectionText()}</code>`);
+        toMark();
+    });
+    document.getElementById('js-text-codeblock').addEventListener('click', () => {
+        replaceSelectionWithHtml(`<pre><code>${getSelectionText()}</code></pre>`);
+        toMark();
+    });
+
+    // set editor view to html
     setEditorMode(1);
 
+    // loads file if one is loaded
+    path = ipc.sendSync('getfilepath');
     if (path != null) {
         let file = fs.readFileSync(path, 'utf8').toString();
         loadFile(file);
     }
 }
 
+// loads txt file into view
 function loadFile(file) {
-    rawtextarea.innerHTML = file;
-    htmtextarea.innerHTML = converter.makeHtml(file);
+    marktextarea.innerHTML = file;
+    htmltextarea.innerHTML = converter.makeHtml(file);
 }
 
+// saves view into txt file
 function saveFile() {
     if (path == null || path == undefined) {
         path = ipc.sendSync('getsavepath');
@@ -58,11 +87,12 @@ function saveFile() {
         }
     }
 
-    let data = rawtextarea.value;
+    let data = marktextarea.value;
 
     fs.writeFileSync(path, data);
 }
 
+// saves view into txt file with changable path
 function saveFileAs() {
     let newPath = ipc.sendSync('getsavepath');
 
@@ -72,14 +102,15 @@ function saveFileAs() {
         path = newPath;
     }
 
-    let data = rawtextarea.value;
+    let data = marktextarea.value;
 
     fs.writeFileSync(path, data);
 }
 
-// 0=raw / 1=html / 2=both
+// sets editor view mode
+// 0=mark / 1=html / 2=both
 function setEditorMode(mode) {
-    let div0 = document.getElementById('js-rawtext');
+    let div0 = document.getElementById('js-marktext');
     let div1 = document.getElementById('js-htmltext-container');
     let div2 = document.getElementById('divider');
     let btn0 = document.getElementById('js-window-0');
@@ -111,16 +142,49 @@ function setEditorMode(mode) {
     }
 }
 
+// converts html to markdown
 function toHtml() {
     console.log('converting to html');
-    htmtextarea.innerHTML = converter.makeHtml(rawtextarea.value);
+    htmltextarea.innerHTML = converter.makeHtml(marktextarea.value);
 }
 
-function toRaw() {
-    console.log('converting to raw');
-    rawtextarea.value = converter.makeMarkdown(htmtextarea.innerHTML);
+// converts markdown to html
+function toMark() {
+    console.log('converting to mark');
+    marktextarea.value = converter.makeMarkdown(htmltextarea.innerHTML);
 }
 
+// back to main menu
 function exitToMainPage() {
     location.href = '../index.html';
+}
+
+// returns selected text
+function getSelectionText() {
+    let text = '';
+    if (window.getSelection) {
+        text = window.getSelection().toString();
+    } else if (document.selection && document.selection.type != 'Control') {
+        text = document.selection.createRange().text;
+    }
+    return text;
+}
+
+function replaceSelectionWithHtml(html) {
+    var range;
+    if (window.getSelection && window.getSelection().getRangeAt) {
+        range = window.getSelection().getRangeAt(0);
+        range.deleteContents();
+        var div = document.createElement('div');
+        div.innerHTML = html;
+        var frag = document.createDocumentFragment(),
+            child;
+        while ((child = div.firstChild)) {
+            frag.appendChild(child);
+        }
+        range.insertNode(frag);
+    } else if (document.selection && document.selection.createRange) {
+        range = document.selection.createRange();
+        range.pasteHTML(html);
+    }
 }

@@ -19,26 +19,29 @@ hr {
 
 .editor-top {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     align-items: center;
+    justify-content: center;
 
     background-color: var(--main-color-back-1);
     color: var(--main-color-front-0);
 
     width: 100%;
     max-width: 1624px;
-    height: 48px;
+    min-height: 48px;
 
     margin: auto;
     margin-bottom: 24px;
     border-radius: 4px;
+
+    user-select: none;
 }
 
 .editor-btn {
     background-color: var(--main-color-back-2);
     color: var(--main-color-front-0);
 
-    margin-left: 8px;
+    margin: 4px;
     width: 32px;
     height: 32px;
 
@@ -47,6 +50,13 @@ hr {
     transition: 0.3s;
 
     font-family: 'Segoe MDL2 Assets';
+}
+
+.editor-btn svg,
+.editor-btn use {
+    width: 32px;
+    height: 32px;
+    fill: var(--main-color-front-0);
 }
 
 .editor-btn:hover {

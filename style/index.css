@@ -4,8 +4,8 @@ hr {
 
 .container {
     background-color: var(--main-color-back-1);
-
     border-radius: 4px;
+    user-select: none;
 }
 
 .title {
@@ -19,6 +19,8 @@ hr {
 }
 
 .box {
+    background-color: var(--main-color-back-2);
+
     width: 128px;
     height: 128px;
     margin: 16px;
@@ -28,12 +30,9 @@ hr {
     vertical-align: middle;
     line-height: 1;
 
-    background-color: var(--main-color-back-2);
-
     transition: 0.3s;
 
     border-radius: 4px;
-
     overflow: hidden;
 }
 

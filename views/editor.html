@@ -42,19 +42,58 @@
 
         <div class="content">
             <div class="editor-top">
+                <!-- navigation buttons -->
                 <button title="back to menu" class="editor-btn" id="js-exit">&#xE72B;</button>
                 <button title="plain-text view" class="editor-btn" id="js-window-0">
-                    &#xF7B9;
+                    <span>
+                        <!-- prettier-ignore -->
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" width="16" height="16"><defs><path d="M10 5L10 3L11 3L11 5L13 5L13 6L11 6L11 10L13 10L13 11L11 11L11 13L10 13L10 11L6 11L6 13L5 13L5 11L3 11L3 10L5 10L5 6L3 6L3 5L5 5L5 3L6 3L6 5L10 5ZM6 6L6 10L10 10L10 6L6 6Z" id="e1TARrRW8f"></path></defs><g><g><g><use xlink:href="#e1TARrRW8f" opacity="1" fill="#007dff" fill-opacity="1"></use></g></g></g></svg>
+                    </span>
                 </button>
                 <button title="stylized-text view" class="editor-btn" id="js-window-1">
-                    &#xF7B5;
+                    <span>
+                        <!-- prettier-ignore -->
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" width="16" height="16"><defs><path d="M3 13L3 12L13 12L13 13L3 13ZM3 10L3 9L9 9L9 10L3 10ZM3 7L3 6L11 6L11 7L3 7ZM3 4L3 3L13 3L13 4L3 4Z" id="ak22ph1S6"></path></defs><g><g><g><use xlink:href="#ak22ph1S6" opacity="1" fill="#007dff" fill-opacity="1"></use></g></g></g></svg>
+                    </span>
                 </button>
-                <button title="split view" class="editor-btn" id="js-window-2">&#xED0C;</button>
+                <button title="split view" class="editor-btn" id="js-window-2">
+                    <span>
+                        <!-- prettier-ignore -->
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" width="16" height="16"><defs><path d="" id="c361ZXslOG"></path><path d="M9.5 2.5L10.5 2.5L10.5 4.5L9.5 5.5L5.5 5.5L5.5 9.5L4.5 10.5L2.5 10.5L2.5 9.5L4.5 9.5L4.5 5.5L2.5 5.5L2.5 4.5L4.5 4.5L4.5 2.5L5.5 2.5L5.5 4.5L9.5 4.5L9.5 2.5Z" id="a2zilMX615"></path><path d="M3.5 13.5L4.5 12.5L13.5 12.5L13.5 13.5L3.5 13.5ZM6.5 10.5L7.5 9.5L9.5 9.5L9.5 10.5L6.5 10.5ZM9.5 7.5L10.5 6.5L11.5 6.5L11.5 7.5L9.5 7.5ZM12.5 4.5L13.5 3.5L13.5 4.5L12.5 4.5Z" id="bWXcKDPLB"></path></defs><g><g><g><g><use xlink:href="#c361ZXslOG" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-opacity="1"></use></g></g><g><use xlink:href="#a2zilMX615" opacity="1" fill="#007dff" fill-opacity="1"></use></g><g><use xlink:href="#bWXcKDPLB" opacity="1" fill="#007dff" fill-opacity="1"></use></g></g></g></svg>
+                    </span>
+                </button>
+
+                <!-- save buttons -->
                 <button title="save" class="editor-btn" id="js-save">&#xE74E;</button>
                 <button title="save as" class="editor-btn" id="js-saveas">&#xE78C;</button>
+
+                <!-- text styles -->
+                <button title="bold" class="editor-btn" id="js-text-strong">&#xE8DD;</button>
+                <button title="italic" class="editor-btn" id="js-text-em">&#xE8DB;</button>
+
+                <!-- special stuff -->
+                <button title="quote" class="editor-btn" id="js-text-blockquote">
+                    &#xE9B1;
+                </button>
+                <button title="list" class="editor-btn" id="js-text-li">
+                    &#xE9B1;
+                </button>
+                <button title="code" class="editor-btn" id="js-text-code">&#xE943;</button>
+                <button title="codeblock" class="editor-btn" id="js-text-codeblock">
+                    &#xE943;
+                </button>
+
+                <!-- headers -->
+                <button title="h1" class="editor-btn" id="js-text-h1">H1</button>
+                <button title="h2" class="editor-btn" id="js-text-h2">H2</button>
+                <button title="h3" class="editor-btn" id="js-text-h3">H3</button>
+                <button title="h4" class="editor-btn" id="js-text-h4">H4</button>
+                <button title="h5" class="editor-btn" id="js-text-h5">H5</button>
+                <button title="h6" class="editor-btn" id="js-text-h6">H6</button>
             </div>
+
             <div class="editor-main">
-                <textarea id="js-rawtext" class="text-container text-container-raw"></textarea>
+                <textarea id="js-marktext" class="text-container text-container-raw"></textarea>
                 <div id="divider"></div>
                 <div id="js-htmltext-container" class="text-container">
                     <div id="js-htmltext" class="text-area" contenteditable="true"></div>
