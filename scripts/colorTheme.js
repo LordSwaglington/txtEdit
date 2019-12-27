@@ -1,4 +1,4 @@
-const dataReader = require('../scripts/dataReader');
+const config = require('../scripts/configReader');
 
 module.exports = {
     setColorTheme: function(theme) {
@@ -9,6 +9,6 @@ module.exports = {
         }
     },
     saveColorTheme: function(theme) {
-        dataReader.writeConfig('color-theme', theme.name);
+        config.writeConfig('color-theme', theme.name);
     }
 };

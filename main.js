@@ -1,6 +1,7 @@
 const { app, BrowserWindow, Menu, dialog, ipcMain } = require('electron');
 const path = require('path');
-const config = require('./data/config');
+//const config = require(__dirname + '/scripts/configReader');
+const config = require('./scripts/configReader');
 
 let mainWindow;
 let editableFilePath = null;
@@ -114,6 +115,7 @@ function openFile() {
     }
 
     editableFilePath = files[0].toString();
+    addToRecents(editableFilePath);
 
     // load editor
     mainWindow.loadFile(__dirname + '/views/editor.html');
@@ -130,4 +132,20 @@ function saveFile() {
     }
 
     editableFilePath = path;
+    addToRecents(editableFilePath);
+}
+
+function addToRecents(file) {
+    let recentFiles = config.readConfig('files-recent');
+
+    // remove the file from recent if its already in it
+    if (recentFiles.includes(file)) {
+        recentFiles.splice(recentFiles.indexOf(file), 1);
+    }
+
+    // add file to first position of array to keep recent files chronological
+    recentFiles.splice(0, 0, file);
+    config.writeConfig('files-recent', recentFiles);
+
+    console.log(recentFiles);
 }

@@ -1,4 +1,4 @@
-const dataReader = require('./scripts/dataReader');
+const config = require('./scripts/configReader');
 const colorTheme = require('./scripts/colorTheme');
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -7,8 +7,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
 function setTheme() {
     // set color theme
-    let themes = dataReader.readDir(__dirname + '/themes/');
-    let activeTheme = dataReader.readConfig('color-theme');
+    let themes = config.readDir(__dirname + '/themes/');
+    let activeTheme = config.readConfig('color-theme');
     console.log(activeTheme);
     for (let theme of themes) {
         if (theme.name == activeTheme) {
